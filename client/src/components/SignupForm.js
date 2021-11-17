@@ -12,11 +12,14 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
+// hook of addUser
   const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log(event.target.name);
+    console.log(event.target.value);
+    
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -31,6 +34,9 @@ const SignupForm = () => {
     }
 
     try {
+//       const object =  { ...userFormData }
+// console.log(object);
+      
       const { data } = await addUser({
         variables: { ...userFormData }
       });
@@ -38,6 +44,7 @@ const SignupForm = () => {
       Auth.login(data.addUser.token);
 
     } catch (err) {
+      console.log('hello world')
       console.error(err);
       setShowAlert(true);
     }
@@ -55,7 +62,7 @@ const SignupForm = () => {
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Meh. Something went wrong with your signup!
+          Something went wrong with your signup!
         </Alert>
 
         <Form.Group>

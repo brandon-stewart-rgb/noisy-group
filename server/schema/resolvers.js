@@ -39,11 +39,13 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-
+// not hitting addUser
         addUser: async (parent, args) => {
+            console.log('Hello');
+           
             const user = await User.create(args);
             const token = signToken(user);
-
+         
             return { token, user };
         },
 
