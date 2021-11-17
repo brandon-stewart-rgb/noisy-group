@@ -1,13 +1,14 @@
 # Google Book Search App
-<a href="https://booksearch-tc.herokuapp.com/">![VIEW DEPLOYED APP](https://img.shields.io/badge/Deployed%20App-blue.svg)
+<a href="https://aqueous-savannah-59550.herokuapp.com/">![VIEW DEPLOYED APP](https://img.shields.io/badge/Deployed%20App-blue.svg)
 </a>    <a href=./LICENSE>![License](https://img.shields.io/badge/License%3A-MIT-green.svg)</a>   
 
 ## Description
 A full-stack MERNg app that uses the Google Books API to let you search for any book title or author. The search results are displayed with the book's title, image, author and description. Signup to save your searched books and display in your saved books page. Saved books are persistent and will still show up when you log out and return to the app.
 
-App was refactored from an existing, fully functional MERN app setup with a RESTful API.  
+App was refactored from an existing, fully functional MERNg app setup with a RESTful API.  
 
-  ## Table of Contents
+
+  ## Table of Contents 
   - [Tech Used](#tech-used)
   - [Contact](#contact)
   - [Links](#links)
