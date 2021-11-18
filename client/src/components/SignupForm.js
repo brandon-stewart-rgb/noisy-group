@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
 import { Form, Button, Alert } from 'react-bootstrap';
-
+import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+
 
 const SignupForm = () => {
   // set initial form state
@@ -12,14 +12,11 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-// hook of addUser
-  const [addUser] = useMutation(ADD_USER);
+
+  const [addUser, {error}] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.name);
-    console.log(event.target.value);
-    
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -34,26 +31,23 @@ const SignupForm = () => {
     }
 
     try {
-//       const object =  { ...userFormData }
-// console.log(object);
+      const {data} = await addUser({
+        variables: {...userFormData}
+      })
       
-      const { data } = await addUser({
-        variables: { ...userFormData }
-      });
-      console.log(data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token)
 
+      
     } catch (err) {
-      console.log('hello world')
       console.error(err);
       setShowAlert(true);
     }
 
-    setUserFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+    // setUserFormData({
+    //   username: '',
+    //   email: '',
+    //   password: '',
+    // });
   };
 
   return (
