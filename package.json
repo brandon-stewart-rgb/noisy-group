@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "homepage": "https://aqueous-savannah-59550.herokuapp.com/",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "node server/server.js ",
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
