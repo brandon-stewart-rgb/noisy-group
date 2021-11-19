@@ -10,10 +10,6 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "heroku-postbuild": "cd client && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@work.github.com:arosenkranz/googlebooks-app.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +17,7 @@
     "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0" 
+    
   }
 }
